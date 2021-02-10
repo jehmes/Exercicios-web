@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Um pouco de CSS</title>
+
+    <link rel="stylesheet" href="poucoDeCss.css">
+    
+    <style>
+        h1 {
+           font-size: 20;
+        }
+        .fundoVermelho {
+            background-color: rgb(187, 8, 8);
+        }
+
+        .negrito {
+            font-weight: bold;
+        }  
+
+    </style>
+</head>
+
+<body>
+    <h1>CSS</h1>
+    <span id="textoPrincipal">Texto 1</span> <br> <br> <br>
+    <span class="fundoVermelho negrito">Texto 2</span> <br> <br>
+    <span class="fundoVermelho" wm-atrib>Texto 3</span>
+
+</body>
+
+</html>
+
+<!--
+    o document.querySelector('[wm-atrib]') é pra localizar um atribuo personalizado, precisa esta com []
+    o document.querySelector('#textoPrincipal') é pra localizar um atributo q foi marcado com #, um id
+    document.querySelector('.fundoVermelho' é pra localziar um atributo q foi marcado com ., uma classe
+-->
+
+<!--o # é pra referenciar um css criado pelo ID-->

@@ -1,0 +1,10 @@
+{
+    "files": [
+        "src/**/*.ts" //aki ta dizendo quais arquivos vao ser transformados
+    ],
+    "compilerOptions": {
+        "rootDir": "src",
+        "noImplicitAny": true, //qnd ta true ele n deixa sem tipagem, tem q ta tipado ou "any
+        "target": "es5"
+    }
+}

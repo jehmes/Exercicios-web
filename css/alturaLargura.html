@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Altura e Largura</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-size: 40px;
+            background-color: coral;
+            height: 100%;
+        }
+
+        div {
+            background-color: seagreen;
+        }
+
+        span {
+            background-color: dodgerblue;
+        }
+
+        span,
+        div {
+            width: 50%;
+            /*qnd se trabalha com % tem q se atentar as classes "pais", nesse caso a classe pai do span e div*/
+            height: 250px;
+            /*é o body, e do body é o html. Entao para o span e div ser modificado o tamanho com %, precisa do body e html fornercer % suficiente*/
+            height: 50%;
+            /*pq n tem como uma classse filha ser maior q o pai*/
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Título</div>
+    <span>Subtítulo</span>
+</body>
+
+</html>

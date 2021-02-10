@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('elemento "ul".............')
+        console.log('childNodes', lista.childNodes)
+        console.log('destino', lista.destino)//n funciona pq destino n é palavra reservada pra ser usada em notacao ponto
+        console.log('getAttribute', lista.getAttribute('destino'))
+        console.log('hasAttribute', lista.hasAttribute('destino'))
+        lista.setAttribute('destino', 'empresa') //trocar de atributo
+        lista.setAttribute('status', 'aberto')  //adicionar um atributo
+        lista.removeAttribute('destino')
+        console.log(lista.dataset.urgencia) //nesse caso é possivel usar otacao ponto com o atributo 'urgencia' pq foi colocado data-urgencia la em cima e dps usando o dataset.urgencia
+        console.log(lista.getAttribute('data-urgencia'))
+
+        //cuidado - tem "compras 2 vezes la em cima. no label e no ul"
+        const label = document.querySelector('label')
+        console.log(label.for) //n funciona pelo sm motivo de lista.destino
+        console.log(label.htmlFor) //pra obter pode usar esse htmlFor ou do exemplo abaixo
+        console.log(label.getAttribute('for'))
+    </script>
+</body>
+
+</html>

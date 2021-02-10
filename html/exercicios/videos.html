@@ -1,0 +1,73 @@
+<video id="meuVideo" width="800" height="450" controls controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4"> <!--a vantagem de uma tag source dedicada é por causa do type, vc pode colocar varios types para caso se o video n for suportado no browser, ele tenta outro, colocando varios type, tipo, type=mp4, type=mp3-->
+    seu brrowe é lixo   <!--esse texto é pra informar se deu algum erro nos types, nesse caso o browser n suportou o mp4-->
+
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button onclick="playButton()" wm-play="meuVideo"> PLAY </button>
+    <button onclick="pauseButton()" wm-pause="meuVideo"> PAUSE </button>
+    
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 790px;
+        border: solid;
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+
+//  AQUI SAO 2 METODO DE FAZER O CONTROLE DE PLAY/PAUSE DE UM VIDEO JUNTO COM UMA BARRA DE PROGRESSÃO DO VIDEO
+   /* let video = document.getElementById("meuVideo")
+    function playButton() {
+        video.play()  
+    }
+
+    function pauseButton() {
+        video.pause()
+    }
+
+    function moverBarra() {
+        setInterval(() => {            
+                let video = document.getElementById("meuVideo")
+                let barraProgressao = document.querySelector("[wm-progresso=meuVideo] > div")              
+                let percentual = (video.currentTime / video.duration) * 100
+                barraProgressao.style.width = `${percentual}%`            
+        },500)
+    }
+
+    mover()*/
+
+    function configurarVideo(id) {
+        const video = document.getElementById(id)
+        video.oncontextmenu = () => false
+
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play()  //<button onclick="playButton()" wm-play="meuVideo"> PLAY </button>. Isso onclick="playButton() n precisava nesse caso, eu coloquei por casusa do metodo q eu fiz acima, nesse metodo n precisa pq ele ta fazedo o onclick num queryselector onde ele passou o id e pegou o botão, entao associou o onclcik nele 
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause()
+
+        setInterval(() => { //foi utlizado o setinterval pra n travar, como precisa ser acompanhado o tempo de video em tempo real, iria ser mt dado rapido pq o resutlado é em milisegundos
+            const percentual = (video.currentTime / video.duration) * 100
+            const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+            valorDiv.style.width = `${percentual}%`
+            valorDiv.innerHTML = `${percentual.toFixed(1)}` //aqui altera o texto da barra de carregamento do video
+        })
+    }
+
+    configurarVideo('meuVideo')
+</script>

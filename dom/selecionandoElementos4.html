@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+       function log() {
+           console.log(this)
+       }
+       //não precisa fazer esses prototype para execuar os comandos. isso foi feito pra poder da console no console em vez do console do browser
+       HTMLCollection.prototype.log = log
+       HTMLElement.prototype.log = log
+       NodeList.prototype.log = log
+       Node.prototype.log = log
+
+       const lista = document.querySelector('div ul')
+       lista.parentNode.log()   //esses text q ta retornando abaixo é por causa dos espaçamentos entre os li
+       lista.childNodes.log() //RETORNA NodeList(7) [text, li, text, li, text, li, text] / OBS: o childnodes retorna os espaços em branco tbm, nesse caso retornou 4 text e 3 lista
+
+       const primeiro = lista.firstChild //o 1 filho da lista é o text. Olhar o retorno acima
+       primeiro.log()
+       primeiro.nextSibling.log()//retorna o prox irmao OBS: o lista.firstChild ta retornando textos tbm, e nextsimbling ta pegando o li. [text, li, text, li...] 
+
+       const ultimo = lista.lastChild // o ultimo filho da lista é o text
+       ultimo.log()
+       ultimo.previousSibling.log() //aki ele ta pegando o irmao anterio do ultimo. o ultimo é o text e o anterior a ele é o li
+
+       lista.children.log() //o children retorna sem os text, mas retorna um htmlcollection
+       lista.firstElementChild.log()
+       lista.lastElementChild.log()
+       lista.parentNode.previousSibling.log()
+       lista.parentNode.nextSibling.log()
+
+       document.querySelectorAll('div ul li').log() //a melhor forma de pesquisar é essa. Pq vc coloca o q realmente qr buscar. E retorna um nodelist, em vez de um html collection
+       document.querySelectorAll('div ul li')[0].classList.add('destaque').log()
+    </script>
+</body>
+
+</html>

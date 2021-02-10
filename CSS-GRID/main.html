@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+
+        <div class="logo"></div>
+
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+
+        <nav class="menu"></nav>
+
+        <aside class="autenticacao"></aside>
+
+    </header>
+
+    <div class="main-body">
+
+        <div id="searchInput">
+            <form></form>
+        </div>
+
+        <div id="content"></div>
+
+        <div id="table-content"></div>
+
+    </div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: grid;
+            grid-template-rows: 20vh 80vh;
+            grid-template-areas: "cabecalho" "main-body";
+        }
+
+        .cabecalho {grid-area: "cabecalho"; background-color: red;}
+        .main-body {grid-area: "main-body"; background-color: blue;}
+
+        .cabecalho {display: grid; grid-template-areas: "logo menu menu-toggle autenticacao";}
+        .logo {grid-area: "logo"; background-color: chartreuse;}
+        .menu {grid-area: "menu"; background-color: coral;}
+        .menu-toggle {grid-area: "menu-toggle"; background-color: pink;}
+        .autenticacao {grid-area: "autenticacao"; background-color: rgb(255, 0, 43);}
+
+    </style>
+
+</body>
+
+</html>

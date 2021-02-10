@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+       body {
+           background-color: aquamarine;
+       }
+    </style>
+    <link rel="stylesheet" href="css/externo.css"> <!--aqui é o link pra um css externo-->
+</head>
+<!--A prioridade do css é semrpe o ultimo, nesse caso o link externo ta tendo prioridade pq foi o ultimoa a ser declarado-->
+<!--mas qnd é declarado direto na tag, como vemos no codigo abaixo, a prioridade agora é da tag da classe, n importa a ordem, essa cor sempre vai ficar la pq tem a priroridade-->
+<body style="background-color: coral;">
+    <h1>E agora?</h1>
+</body>
+
+</html>

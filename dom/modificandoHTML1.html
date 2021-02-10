@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div')
+        div1.classList.add('destaque')
+        div1.innerHTML = 'Primeiro' //to criando o texto
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('wm-atributo', 'valor')//adiciona atributo chave e valor
+        div2.classList.add('destaque')
+        div2.innerHTML = 'segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p) //aki ta adicionando o element p em div3. o p é filho do div3
+
+        body.appendChild(div1) //apprendchild adiciona na ultima posição
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+      
+        const texto = document.createTextNode('antes')//isso é tipo innerHTML
+        div3.insertBefore(texto, div3.childNodes[0]) //o apprendChild adiciona na ultima posição. Essa função esta adicionando antes
+
+
+        const div4 = div3.cloneNode(true)//true ira clonar ate os iflhos, false n
+        body.appendChild(div4)
+        // body.removeChild(div3)
+    </script>
+</body>
+
+</html>

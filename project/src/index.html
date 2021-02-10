@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Menu</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registar" class="botao destaque">Registrar</a>
+        </aside>
+        <script src="test.js"></script>
+    </header>
+    <div>
+        <div id="searchInput">
+            <form>
+                <input type="text" placeholder="Buscar uma cidade" id="search">
+                <button id="buttonSearch">Pesquisar</button>
+            </form>
+
+        </div>
+        <div id="content">
+            <div id="contentInformation">
+                <p id="cityContent">Recife</p>
+
+                <p id="temperatureContent">20°C</p>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script>
+  
+    const inputSearch = document.getElementById('search')
+    const buttonSearch = document.getElementById('buttonSearch')
+
+   buttonSearch.onclick = ev => {
+        
+        ev.preventDefault()
+  
+    const url =`http://localhost:4567/city/?query=${inputSearch.value}`
+    fetch(url)
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+        })
+    }
+    
+  
+</script>
+
+</html>

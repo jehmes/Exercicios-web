@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Exercicios HTML</h1>
+        <style>
+            #conteudo {
+                padding: 30px 0px;
+            }
+        </style>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">00 - teste</a> |
+        <a href="exercicios/texto1.html">01 - texto1</a> |
+        <a href="exercicios/texto2.html">02 - texto2</a> |
+        <a href="exercicios/listas.html">03 - Listas</a> |
+        <a href="exercicios/listaAninhada.html">04 - Lista Aninhada</a> |
+        <a href="exercicios/links.html">05 - Links</a> |
+        <a href="exercicios/tabela.html">06 - tabela</a> |
+        <a href="exercicios/form/form.html">07 - formulario</a> |
+        <a href="exercicios/imagens.html">08 - imagens</a> |
+        <a href="exercicios/videos.html">09 - videos</a> |
+        <a href="exercicios/tagsNaoVisuais.html">10 - tagsNaoVisuais</a>
+    </nav>
+    <section id="conteudo">
+
+    </section>
+    <footer>        
+         Curso de web moderno
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link => { //pra cada link vai ser disparado um onlick e cada click vai ter uma função    
+            const conteudo = document.getElementById('conteudo')
+           
+            link.onclick = e => {//é para permanecer na pagina
+                e.preventDefault()
+                
+            fetch(link.href)
+                .then(resp => resp.text())//o .text ta trazendo todo o html do link
+                .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>
+

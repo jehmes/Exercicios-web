@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Herança</title>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /*a herança passou do body pro h1 e div, mas n passa tudo, nem tudo é passado por padrão*/
+            font-family: 'Potta One', cursive;
+            font-size: 40px;
+            border: solid 3px red;
+            padding: 50px;
+            margin: 100px 100px; /*em sentido horario. o top é o 1, o direito é o 2...*/
+        }
+
+        div {
+            border: inherit; /*Herdou de body*/
+            padding: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Herança</h1>
+    <div>Estou herdando</div>
+</body>
+
+</html>

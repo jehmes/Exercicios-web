@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!--1 FORMA DE FAZER UM EVENTO-->
+        <!--onclick="navegarEm5s(event)"--> <!--n é mt recomendado-->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        function navegarEm5s(e) {
+            e.preventDefault() //pra ele n mudar de apgina qnd for clicado
+            console.log('saindo em..')
+            console.log(e.target)            
+            setTimeout(() => {
+                const link = e.target // e.target é a tag "a" toda
+                window.location.href = link.href //o window.location.href é onde coloca url no browser
+            }, 5000)                    //o link.href ta pegando especificamente o url
+        }
+        
+        // 2 FORMA DE FAZER UM EVENTO
+        // cont a = document.querySelector('a')
+        // a.onclick = navegarEm5s
+
+        //3 FORMA DE FAZER UM EVENTO <- RECOMENDADA
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+    </script>
+</body>
